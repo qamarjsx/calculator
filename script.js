@@ -29,6 +29,9 @@ numbers.forEach((num) => {
 });
 
 function handleOperClick(event) {
+  if (formula.textContent.includes("=")) {
+    formula.textContent = output.textContent
+  }
   let content = event.target.textContent;
   if (
     (formula.textContent === "" && output.textContent === "0") ||
@@ -51,18 +54,18 @@ opersArr.forEach((oper) => {
 });
 
 function handleEqual(event) {
-  console.log(output.textContent);
+  // console.log(output.textContent);
   if (
     (formula.textContent === "" && output.textContent === "0") ||
     (output.textContent === "" && formula.textContent === "")
   ) {
     alert("Use equal after an expression you want to evaluate");
   } else {
-    console.log(event.target.textContent);
+    // console.log(event.target.textContent);
     let content = event.target.textContent;
-    console.log(formula.textContent);
-    let result = eval(formula.textContent.slice(0, -1)).toFixed(1);
-    formula.textContent += result;
+    // console.log(formula.textContent);
+    let result = eval(formula.textContent).toFixed(1);
+    formula.textContent += content;
     output.textContent = result;
   }
 }
