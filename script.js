@@ -64,7 +64,7 @@ function handleEqual(event) {
     // console.log(event.target.textContent);
     let content = event.target.textContent;
     // console.log(formula.textContent);
-    let result = eval(formula.textContent).toFixed(1);
+    let result = eval(formula.textContent).toFixed(2);
     formula.textContent += content;
     output.textContent = result;
   }
